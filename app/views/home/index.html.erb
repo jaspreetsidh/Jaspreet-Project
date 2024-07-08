@@ -1,0 +1,33 @@
+<h3>Today a Reader, Tomorrow a Leader!</h3>
+
+<%= form_tag(root_path, method: "get") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search for books..." %>
+    <%= submit_tag "Search" %>
+  <% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Authors</th>
+      <th>Stories</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @books_with_stories.each do |book| %>
+      <tr>
+      <td><%= link_to book.title, book_path(book) %></td>
+        <td><%= book.authors %></td>
+        <td>
+          <ul>
+            <% book.stories.each do |story| %>
+              <li><%= story.title %></li>
+            <% end %>
+          </ul>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @books_with_stories %>

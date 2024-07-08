@@ -1,0 +1,12 @@
+<h1>About Us</h1>
+
+<p>In my database, I have two tables namely Books and Stories. Books Tables has six columns namely "id", "BookId", "title","authors", "average_rating", "isbn", "isbn13","language_code","num_pages","ratings_count","text_reviews_count","publication_date","publisher","created_at","updated_at". </p>
+<p>In Stories table have seven columns named "id", "book_id", "title", "content", "author", "created_at", "updated_at". Books and Stories table have one to many associations between them because one book can have many stories.</p>
+
+<h2>Data Sources</h2>
+
+<ul>
+  <% @data_sources.each do |source| %>
+    <li><strong><%= source[:name] %>:</strong> <%= source[:description] %></li>
+  <% end %>
+</ul>

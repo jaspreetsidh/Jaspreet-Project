@@ -1,0 +1,8 @@
+<h1><%= @story.title %></h1>
+<p><strong>Author:</strong> <%= @story.author %></p>
+<p><strong>Content:</strong> <%= @story.content %></p>
+<p><strong>Author:</strong> <%= @story.author %></p>
+
+<p>
+  <%= link_to 'Back to Book Details', book_path(@story.book) %>
+</p>

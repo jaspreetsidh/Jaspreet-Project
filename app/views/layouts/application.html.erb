@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Readings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <!-- Container for the main content -->
+    <div class="container">
+      <!-- Navbar -->
+      <header class="d-flex justify-content-between align-items-center my-3">
+        <h1 class="mb-0">A Reading Hub</h1>
+        <nav>
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item"><%= link_to 'Home', root_path, class: "nav-link" %></li>
+            <li class="list-inline-item"><%= link_to 'Books', books_path, class: "nav-link" %></li>
+            <li class="list-inline-item"><%= link_to 'Stories', stories_path, class: "nav-link" %></li>
+            <li class="list-inline-item"><%= link_to 'About', about_path, class: "nav-link" %></li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Main content -->
+      <div class="row">
+        <div class="col">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS (optional) -->
+    <%= javascript_include_tag 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js' %>
+    <%= javascript_include_tag 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js' %>
+  </body>
+</html>

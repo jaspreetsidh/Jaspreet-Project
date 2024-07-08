@@ -1,0 +1,31 @@
+<h1>All Stories</h1>
+
+<%= form_with(url: stories_path, method: "get") do %>
+  <%= text_field_tag(:search, params[:search], placeholder: "Search for magazines") %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @stories.each do |story| %>
+      <tr>
+        <td><%= story.title %></td>
+        <td><%= story.author %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if flash[:notice] %>
+  <div class="alert alert-warning">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<%= will_paginate @stories %>

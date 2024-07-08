@@ -1,0 +1,17 @@
+<h1><%= @book.title %></h1>
+<p><strong>Book ID:</strong> <%= @book.bookID %></p>
+<p><strong>Authors:</strong> <%= @book.authors %></p>
+<p><strong>Average Rating:</strong> <%= @book.average_rating %></p>
+<p><strong>ISBN:</strong> <%= @book.isbn %></p>
+<p><strong>ISBN13:</strong> <%= @book.isbn13 %></p>
+<p><strong>Published Date:</strong> <%= @book.publication_date.strftime('%b %d, %Y') %></p>
+<p><strong>Publisher:</strong> <%= @book.publisher %></p>
+
+<h2>Stories</h2>
+<ul>
+  <% @book.stories.each do |story| %>
+    <li><%= link_to story.title, story_path(story) %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Back to Books', root_path %>
