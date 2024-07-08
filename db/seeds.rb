@@ -23,6 +23,15 @@ CSV.foreach(Rails.root.join('db', 'books.csv'), headers: true) do |row|
   )
 end
 
-
+# Seed data from Faker for Stories
+Book.all.each do |book|
+  5.times do
+    book.stories.create!(
+      title: Faker::Book.title,
+      content: Faker::Lorem.paragraphs(number: 5).join("\n\n"),
+      author: Faker::Book.author
+    )
+  end
+end
 
 puts "Database has been seeded with books and stories!"
