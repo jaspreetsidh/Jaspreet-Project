@@ -3,7 +3,4 @@ class Story < ApplicationRecord
 end
 
 
-# validations
-validations :title, presence; true
-validations :content, presence; true
-validations :author, presence; true
+
